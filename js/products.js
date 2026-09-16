@@ -70,5 +70,14 @@ const PRODUCTS = [
     icon: "🍊",
     color: "#fdeee0",
     description: "A bright, uplifting blend of citrus and white florals for an everyday signature scent."
+  },
+  {
+    id: "p9",
+    name: "Serene",
+    category: "Makeup",
+    price: 13.00,
+    icon: "💋",
+    color: "#fbe0d9",
+    description: "A calming, nourishing lip oil that melts into a sheer, glass-like shine for effortlessly soft lips."
   }
 ];
