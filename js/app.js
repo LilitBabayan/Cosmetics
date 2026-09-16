@@ -40,9 +40,10 @@ function renderProducts(category = "all") {
     ? PRODUCTS
     : PRODUCTS.filter(p => p.category === category);
 
-  items.forEach(product => {
+  items.forEach((product, index) => {
+    const isFeatured = category === "all" && index === 0;
     const card = document.createElement("article");
-    card.className = "product-card";
+    card.className = isFeatured ? "product-card featured" : "product-card";
     card.innerHTML = `
       <div class="product-thumb" style="background:${product.color}">
         <span>${product.icon}</span>
@@ -51,8 +52,9 @@ function renderProducts(category = "all") {
         <p class="product-category">${product.category}</p>
         <h3 class="product-name">${product.name}</h3>
         <p class="product-price">${formatPrice(product.price)}</p>
+        ${isFeatured ? `<p class="product-description">${product.description}</p>` : ""}
+        <button class="btn btn-secondary btn-full" data-view="${product.id}">View details</button>
       </div>
-      <button class="btn btn-secondary btn-full" data-view="${product.id}">View details</button>
     `;
     productGrid.appendChild(card);
   });
