@@ -87,7 +87,24 @@
   </div>
 </aside>
 
+<!-- Shopping assistant -->
+<button class="assistant-toggle" id="assistantToggle" aria-label="Open shopping assistant">💬</button>
+<aside class="assistant-panel" id="assistantPanel">
+  <div class="assistant-header">
+    <h3>Ask Lumora</h3>
+    <button class="assistant-close" id="assistantClose" aria-label="Close assistant">&times;</button>
+  </div>
+  <div class="assistant-messages" id="assistantMessages"></div>
+  <form class="assistant-form" id="assistantForm">
+    <input type="text" id="assistantInput" placeholder="Ask about a product, concern, or budget…" autocomplete="off">
+    <button type="submit" class="assistant-send" aria-label="Send">➤</button>
+  </form>
+</aside>
+
 <script src="js/products.js"></script>
 <script src="js/app.js"></script>
+<script src="js/shopping-assistant.js"></script>
+<script src="js/assistant-judge.js"></script>
+<script src="js/assistant-ui.js"></script>
 </body>
 </html>
