@@ -46,11 +46,12 @@ function renderProducts(category = "all") {
     card.className = isFeatured ? "product-card featured" : "product-card";
     card.innerHTML = `
       <div class="product-thumb" style="background:${product.color}">
-        <span>${product.icon}</span>
+        <img src="${product.image}" alt="${product.name}" loading="lazy">
       </div>
       <div class="product-info">
-        <p class="product-category">${product.category}</p>
+        <p class="product-brand">${product.brand}</p>
         <h3 class="product-name">${product.name}</h3>
+        <p class="product-category">${product.category}</p>
         <p class="product-price">${formatPrice(product.price)}</p>
         ${isFeatured ? `<p class="product-description">${product.description}</p>` : ""}
         <button class="btn btn-secondary btn-full" data-view="${product.id}">View details</button>
@@ -65,9 +66,10 @@ function openProductModal(id) {
   if (!product) return;
   productModal.innerHTML = `
     <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
-    <div class="modal-thumb" style="background:${product.color}"><span>${product.icon}</span></div>
-    <p class="product-category">${product.category}</p>
+    <div class="modal-thumb" style="background:${product.color}"><img src="${product.image}" alt="${product.name}"></div>
+    <p class="product-brand">${product.brand}</p>
     <h2>${product.name}</h2>
+    <p class="product-category">${product.category}</p>
     <p class="modal-price">${formatPrice(product.price)}</p>
     <p class="modal-description">${product.description}</p>
     <button class="btn btn-primary btn-full" id="modalAddToCart" data-id="${product.id}">Add to Bag</button>
@@ -124,7 +126,7 @@ function renderCart() {
     subtotal += lineTotal;
     return `
       <div class="cart-item">
-        <div class="cart-item-thumb" style="background:${product.color}">${product.icon}</div>
+        <div class="cart-item-thumb" style="background:${product.color}"><img src="${product.image}" alt="${product.name}"></div>
         <div class="cart-item-info">
           <p class="cart-item-name">${product.name}</p>
           <p class="cart-item-price">${formatPrice(product.price)}</p>

@@ -37,7 +37,7 @@ function appendAssistantChips(productIds) {
     const chip = document.createElement("button");
     chip.className = "assistant-chip";
     chip.type = "button";
-    chip.innerHTML = `<span>${product.icon}</span> ${product.name}`;
+    chip.innerHTML = `<span>${product.icon}</span> ${product.brand} ${product.name}`;
     chip.addEventListener("click", () => openProductModal(product.id));
     wrap.appendChild(chip);
   });

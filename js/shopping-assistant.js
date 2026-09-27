@@ -34,6 +34,7 @@ function assistantScoreProduct(product, text, categories) {
 
   if (categories.includes(product.category)) score += 3;
   if (text.includes(product.name.toLowerCase())) score += 5;
+  if (product.brand !== "Lumora" && text.includes(product.brand.toLowerCase())) score += 5;
 
   Object.values(ASSISTANT_CONCERN_KEYWORDS).forEach(words => {
     const mentioned = words.some(w => text.includes(w));
@@ -70,7 +71,7 @@ function draftAssistantResponse(question) {
     ? "Here's one I think you'll love:"
     : "Here's what I'd suggest:";
 
-  const lines = candidates.map(p => `• ${p.name} (${formatPrice(p.price)}) — ${p.description}`);
+  const lines = candidates.map(p => `• ${p.brand} ${p.name} (${formatPrice(p.price)}) — ${p.description}`);
 
   return {
     text: `${intro}\n${lines.join("\n")}`,
